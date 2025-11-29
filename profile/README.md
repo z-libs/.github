@@ -71,6 +71,8 @@ Zibi hates:
 
 If your code compiles and runs on the first try, Zibi is happy.
 
+![Zibi](zibi.svg)
+
 ## Coming soon
 
 This is a growing project. New libraries will come often. Benchmarks will be made too.
