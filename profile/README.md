@@ -1,4 +1,4 @@
-# z-libs — Modern single-header libraries for C
+# z-libs -> Modern single-header libraries for C
 
 Zero-dependency • Header-only • C11 • Type-safe • Allocator-aware • No macro hell for the developer
 
@@ -60,4 +60,5 @@ This is a growing project. New libraries will come often. Benchmarks will be mad
 ## License
 
 The whole project uses the MIT license.
+
 
