@@ -38,12 +38,9 @@ All libraries share the same philosophy:
 
 ## Quick start
 
-```bash
-git clone https://github.com/z-libs/z-libs.git
-cd z-libs```
-```
+Clone each one of the repositories. Then simply use the header files you want. They are independent.
 
-Then simply use the header files you want. They are independent.
+> A repository will soon be available as a suite that contains all header files.
 
 ## Why another C container collection?
 
@@ -63,3 +60,4 @@ This is a growing project. New libraries will come often. Benchmarks will be mad
 ## License
 
 The whole project uses the MIT license.
+
