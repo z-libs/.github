@@ -3,19 +3,19 @@
 Zero-dependency • Header-only • C11 • Type-safe • Allocator-aware • No macro hell for the developer
 
 ```c
-zvec(int) scores = {0};
+vec_int scores = vec_init(int);
 vec_push(&scores, 10);
 vec_push(&scores, 42);
 
 zstr name = zstr_lit("Ada");
-zstr_fmt(&name, " %s", "Lovelace");        // -> "Ada Lovelace"
+zstr_fmt(&name, " %s", "Lovelace");   // -> "Ada Lovelace"
 
-zmap(zstr, int) ages = {0};
-map};
+map_ages ages = map_init();
 map_put(&ages, zstr_lit("Ada"), 36);
 map_put(&ages, zstr_lit("Grace"), 85);
 
-printf("%d\n", *map_get(&ages, zstr_lit("Grace")));  // -> 85
+int *val = map_get(&ages, zstr_lit("Grace"));
+if (val) printf("Age: %d\n", *val);   // -> Age: 85
 ```
 
 ## The libraries
@@ -60,6 +60,7 @@ This is a growing project. New libraries will come often. Benchmarks will be mad
 ## License
 
 The whole project uses the MIT license.
+
 
 
 
