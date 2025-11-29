@@ -34,7 +34,7 @@ All libraries share the same philosophy:
 - Full type safety through _Generic + X-macros  
 - Per-container custom allocator support (arenas, pools, etc.)  
 - No hidden global or thread-local state  
-- Works everywhere: gcc, clang, msvc, tcc, any C11+ compiler  
+- Works everywhere: gcc, clang, msvc, any C11+ compiler  
 
 ## Quick start
 
@@ -78,6 +78,7 @@ This is a growing project. New libraries will come often. Benchmarks will be mad
 ## License
 
 The whole project uses the MIT license.
+
 
 
 
