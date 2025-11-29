@@ -53,6 +53,24 @@ Most existing solutions suffer from at least one of these problems:
 
 z-libs gives you modern ergonomics while staying pure C: you keep full control over memory, compilation remains instant, and everything still runs on the smallest microcontrollers.
 
+## Meet Zibi
+
+Zibi is the tiny green ogre that guards your containers.
+
+He started life as a random GitHub identicon, reminded us of an ogre, and became the official mascot.
+
+Zibi likes:
+- single-header libraries
+- type safety
+- onions (because C macros have layers)
+
+Zibi hates:
+- void*
+- build systems
+- segfaults
+
+If your code compiles and runs on the first try, Zibi is happy.
+
 ## Coming soon
 
 This is a growing project. New libraries will come often. Benchmarks will be made too.
@@ -60,6 +78,7 @@ This is a growing project. New libraries will come often. Benchmarks will be mad
 ## License
 
 The whole project uses the MIT license.
+
 
 
 
