@@ -22,10 +22,10 @@ printf("%d\n", *map_get(&ages, zstr_lit("Grace")));  // -> 85
 
 | Library     | Description                                           | Key features                                                |
 |-------------|-------------------------------------------------------|-------------------------------------------------------------|
-| [zvec.h]    | Growable vectors (like std::vector)                   | O(1) swap-remove, built-in sort/search, custom allocators   |
-| [zstr.h]    | Modern UTF-8 strings (like std::string)               | 22-byte SSO, views, formatting, split, zero-copy slicing    |
-| [zlist.h]   | Doubly-linked lists                                   | Non-intrusive, safe iteration, O(1) splice                  |
-| [zmap.h]    | Open-addressing hash tables (like std::unordered_map) | Linear probing, FNV-1a, cache-friendly, custom allocators   |
+| [zvec.h](https://github.com/z-libs/zvec.h)    | Growable vectors (like std::vector)                   | O(1) swap-remove, built-in sort/search, custom allocators   |
+| [zstr.h](https://github.com/z-libs/zstr.h)    | Modern UTF-8 strings (like std::string)               | 22-byte SSO, views, formatting, split, zero-copy slicing    |
+| [zlist.h](https://github.com/z-libs/zlist.h)   | Doubly-linked lists                                   | Non-intrusive, safe iteration, O(1) splice                  |
+| [zmap.h](https://github.com/z-libs/zmap.h)    | Open-addressing hash tables (like std::unordered_map) | Linear probing, FNV-1a, cache-friendly, custom allocators   |
 
 All libraries share the same philosophy:
 
@@ -60,6 +60,7 @@ This is a growing project. New libraries will come often. Benchmarks will be mad
 ## License
 
 The whole project uses the MIT license.
+
 
 
 
