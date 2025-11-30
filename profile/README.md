@@ -36,7 +36,7 @@ for (auto part : name.split(" ")) {
 }
 ```
 
-> C++ support is currently only available for `zstr.h`, but we are working on the other libraries.
+> *C++ support is currently only available for `zstr.h`, but we are working on the other libraries.
 
 ## The libraries
 
@@ -99,6 +99,7 @@ This is a growing project. New libraries will come often. Benchmarks will be mad
 ## License
 
 The whole project uses the **MIT License**.
+
 
 
 
