@@ -1,76 +1,88 @@
-# z-libs: Modern single-header libraries for C
+# z-libs: Modern single-header libraries for C/C++
 
-Zero-dependency • Header-only • C11 • Type-safe • Allocator-aware • **C++ Compatible***
+> Zero-dependency • Header-only • C11 - C++11/C++17 • Type-safe • Allocator-aware
 
 **z-libs** is a collection of single-header container libraries. They are written in pure C for maximum portability but include zero-cost C++ wrappers for modern developer ergonomics.
 
 These libraries allow you to write standard C11 code with full control over memory, or drop them into a C++ project to utilize RAII, move semantics, and range-based loops without any performance overhead.
 
-- Works perfectly in C:
+### The "Bridge" Philosophy
+
+Most libraries force you to choose a side. **z-libs** lets you cross the border freely.
+
+**1. Works perfectly in C11:**
+Full control, no hidden allocations, type-safe macros.
 
 ```c
+// zvec: Dynamic Arrays
 vec_int scores = vec_init(int);
 vec_push(&scores, 10);
 vec_push(&scores, 42);
 
+// zstr: SSO Strings
 zstr name = zstr_lit("Ada");
 zstr_fmt(&name, " %s", "Lovelace");   // -> "Ada Lovelace"
 
-map_ages ages = map_init();
-map_put(&ages, zstr_lit("Ada"), 36);
+// zmap: Hash Maps
+map_ages ages = map_init(ages);
 map_put(&ages, zstr_lit("Grace"), 85);
-
-int *val = map_get(&ages, zstr_lit("Grace"));
-if (val) printf("Age: %d\n", *val);   // -> Age: 85
 ```
 
-- And the same headers can be used in C++:
+**2. And the SAME headers work natively in C++:**
+RAII, methods, iterators, and `std::` compatibility.
 
 ```cpp
-z_str::string name = "Ada";
-name += " Lovelace";  // RAII handles memory
+// z_vec: Wrapper around vec_int
+z_vec::vector<int> scores = {10, 42};
+scores.push_back(100);
 
-// Range-based loops & Views
+// z_str: Wrapper around zstr
+z_str::string name = "Ada";
+name += " Lovelace"; 
+
+// Range-based loops & Views.
 for (auto part : name.split(" ")) {
     std::cout << part << "\n";
 }
 ```
 
-> *C++ support is currently only available for `zstr.h`, but we are working on the other libraries.
+## The Libraries
 
-## The libraries
+| Library | Description | C++ Support | Status |
+| :--- | :--- | :--- | :--- |
+| **[zvec](https://github.com/z-libs/zvec)** | Type-safe dynamic arrays | Full Wrapper | Stable |
+| **[zstr](https://github.com/z-libs/zstr)** | SSO-optimized strings & views | Full Wrapper | Stable |
+| **[zmap](https://github.com/z-libs/zmap)** | Open-addressing hash maps | *In Progress* | Stable (C) |
+| **[zlist](https://github.com/z-libs/zlist)** | Doubly-linked lists | *In Progress* | Stable (C) |
 
-| Library     | Description                                           | Key features                                                |
-|-------------|-------------------------------------------------------|-------------------------------------------------------------|
-| [zvec.h](https://github.com/z-libs/zvec.h) | Growable vectors (like std::vector) | O(1) swap-remove, built-in sort/search, custom allocators |
-| [zstr.h](https://github.com/z-libs/zstr.h) | Modern strings | 23-byte SSO, **full C++ wrapper**, views, split, zero-copy slicing |
-| [zlist.h](https://github.com/z-libs/zlist.h) | Doubly-linked lists | Non-intrusive, safe iteration, O(1) splice |
-| [zmap.h](https://github.com/z-libs/zmap.h) | Open-addressing hash tables (like std::unordered_map) | Linear probing, FNV-1a, cache-friendly, custom allocators |
+## Quick Start
 
-## Philosophy
+The libraries are designed to be modular. You can grab just one, or use them all together.
 
-All libraries share the same DNA:
+### Option A: The Suite (Recommended)
 
-* **Zero external dependencies**: Standard C standard library only.
+Use **[z-core](https://github.com/z-libs/z-core)** tools to manage type generation automatically.
+
+```bash
+git submodule add https://github.com/z-libs/zvec.git
+git submodule add https://github.com/z-libs/zstr.git
+git submodule add https://github.com/z-libs/z-core.git
+```
+
+### Option B: Drag and Drop
+
+Since they are header-only and zero-dependency, you can simply download `zvec.h` or `zstr.h` and drop them into your `include/` folder.
+
+## Why z-libs?
+
+Most C container libraries suffer from **Macro Hell** (cryptic errors), **void\* soup** (no type safety), or **Build System Fatigue** (requiring CMake/Make just to use a vector).
+
+**z-libs** solves this by using modern C11 features (`_Generic`) for the implementation while providing a "feels-like-native" C++ layer on top.
+
+* **Zero external dependencies**: Standard C library only.
 * **Truly single-header**: Just drop the file in your project.
-* **Dual API**: 
-    * **C**: Full control, no allocations hidden from you.
-    * **C++**: RAII, Move Semantics, Iterators, and `std::string_view` compatibility.
-* **Type safety**: Generics via macros (C) or Templates (C++).
 * **Allocator-aware**: Support for arenas, pools, and custom heaps.
-* **Universal**: Compiles on gcc, clang, msvc, and tiny microcontrollers.
-
-## Quick start
-
-Clone each one of the repositories. Then simply use the header files you want. They are independent.
-
-> A repository will soon be available as a suite that contains all header files.
-
-## Why another C container collection?
-
-Most C container libraries suffer from **Macro Hell** (cryptic errors), **void\* soup** (no type safety), or **Build System Fatigue** (requiring CMake/Make/etc just to use a vector).
-
-**z-libs** solves this by using modern C11 features for the implementation while providing a "feels-like-native" C++ layer on top. You get the raw performance and portability of C with the safety and convenience of C++.
+* **Universal**: Compiles on GCC, Clang, MSVC, and tiny microcontrollers.
 
 ## Meet Zibi
 
@@ -90,16 +102,11 @@ He started life as a random GitHub identicon, reminded us of an ogre, and became
 
 If your code compiles and runs on the first try, Zibi is happy.
 
-![Zibi](zibi.svg)
-
-## Coming soon
-
-This is a growing project. New libraries will come often. Benchmarks will be made too.
+![Zibi](https://raw.githubusercontent.com/z-libs/.github/main/profile/zibi.svg)
 
 ## License
 
 The whole project uses the **MIT License**.
-
 
 
 
