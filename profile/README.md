@@ -36,12 +36,17 @@ RAII, methods, iterators, and `std::` compatibility.
 z_vec::vector<int> scores = {10, 42};
 scores.push_back(100);
 
+// z_list: wrapper around list_int
+z_list::list<int> ages = {32, 12, 81};
+ages.push_front(19);
+
 // z_str: Wrapper around zstr
 z_str::string name = "Ada";
 name += " Lovelace"; 
 
 // Range-based loops & Views.
-for (auto part : name.split(" ")) {
+for (auto part : name.split(" "))
+{
     std::cout << part << "\n";
 }
 ```
@@ -53,7 +58,7 @@ for (auto part : name.split(" ")) {
 | **[zvec](https://github.com/z-libs/zvec)** | Type-safe dynamic arrays | Full Wrapper | Stable |
 | **[zstr](https://github.com/z-libs/zstr)** | SSO-optimized strings & views | Full Wrapper | Stable |
 | **[zmap](https://github.com/z-libs/zmap)** | Open-addressing hash maps | *In Progress* | Stable (C) |
-| **[zlist](https://github.com/z-libs/zlist)** | Doubly-linked lists | *In Progress* | Stable (C) |
+| **[zlist](https://github.com/z-libs/zlist)** | Doubly-linked lists | Full Wrapper | Stable |
 
 ## Quick Start
 
@@ -107,6 +112,7 @@ If your code compiles and runs on the first try, Zibi is happy.
 ## License
 
 The whole project uses the **MIT License**.
+
 
 
 
