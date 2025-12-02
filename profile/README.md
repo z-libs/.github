@@ -1,10 +1,10 @@
 # z-libs: Modern single-header libraries for C/C++
 
-> Zero-dependency • Header-only • C11 - C++11/C++17 • Type-safe • Allocator-aware
+> Zero-dependency • Header-only • C11 - C++11/C++17 • Type-safe • Lua Bindings
 
 **z-libs** is a collection of single-header container libraries. They are written in pure C for maximum portability but include zero-cost C++ wrappers for modern developer ergonomics.
 
-These libraries allow you to write standard C11 code with full control over memory, or drop them into a C++ project to utilize RAII, move semantics, and range-based loops without any performance overhead.
+These libraries allow you to write standard C11 code with full control over memory, drop them into a C++ project to utilize RAII and range-based loops, or expose them to scripting languages like Lua without performance loss.
 
 ### The "Bridge" Philosophy
 
@@ -17,15 +17,14 @@ Full control, no hidden allocations, type-safe macros.
 // zvec: Dynamic Arrays
 vec_int scores = vec_init(int);
 vec_push(&scores, 10);
-vec_push(&scores, 42);
 
 // zstr: SSO Strings
 zstr name = zstr_lit("Ada");
-zstr_fmt(&name, " %s", "Lovelace");   // -> "Ada Lovelace"
+zstr_fmt(&name, " %s", "Lovelace");
 
 // zmap: Hash Maps
 map_ages ages = map_init(ages);
-map_put(&ages, zstr_lit("Grace"), 85);
+map_put(&ages, "Grace", 85);
 ```
 
 **2. And the SAME headers work natively in C++:**
@@ -34,31 +33,41 @@ RAII, methods, iterators, and `std::` compatibility.
 ```cpp
 // z_vec: Wrapper around vec_int
 z_vec::vector<int> scores = {10, 42};
-scores.push_back(100);
 
-// z_list: wrapper around list_int
-z_list::list<int> ages = {32, 12, 81};
-ages.push_front(19);
+// z_map: Wrapper around map_ages
+z_map::map<std::string, int> ages;
+ages.put("Grace", 85);
 
 // z_str: Wrapper around zstr
 z_str::string name = "Ada";
-name += " Lovelace"; 
-
-// Range-based loops & Views.
 for (auto part : name.split(" "))
 {
     std::cout << part << "\n";
 }
 ```
 
+**3. Scripting Ready (Lua):**
+High-performance mutable buffers for scripts to avoid garbage collection churn.
+
+```lua
+local zstr = require("zstr")
+local buf = zstr.new("Start: ")
+
+-- Efficient appending (no intermediate garbage).
+buf:append("User=", "Alice", " ID=", tostring(101))
+buf:upper()
+
+print(tostring(buf)) -- "START: USER=ALICE ID=101"
+```
+
 ## The Libraries
 
-| Library | Description | C++ Support | Status |
+| Library | Description | Features | Status |
 | :--- | :--- | :--- | :--- |
-| **[zvec](https://github.com/z-libs/zvec.h)** | Type-safe dynamic arrays | Full Wrapper | Stable |
-| **[zstr](https://github.com/z-libs/zstr.h)** | SSO-optimized strings & views | Full Wrapper | Stable |
-| **[zmap](https://github.com/z-libs/zmap.h)** | Open-addressing hash maps | Full Wrapper | Stable |
-| **[zlist](https://github.com/z-libs/zlist.h)** | Doubly-linked lists | Full Wrapper | Stable |
+| **[zvec](https://github.com/z-libs/zvec.h)** | Type-safe dynamic arrays | Full C++ Wrapper | Stable |
+| **[zstr](https://github.com/z-libs/zstr.h)** | SSO-optimized strings & views | C++ Wrapper, Lua Bindings | Stable |
+| **[zmap](https://github.com/z-libs/zmap.h)** | Open-addressing hash maps | Full C++ Wrapper | Stable |
+| **[zlist](https://github.com/z-libs/zlist.h)** | Doubly-linked lists | Full C++ Wrapper | Stable |
 
 ## Quick Start
 
@@ -112,9 +121,6 @@ If your code compiles and runs on the first try, Zibi is happy.
 ## License
 
 The whole project uses the **MIT License**.
-
-
-
 
 
 
