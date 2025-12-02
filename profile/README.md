@@ -57,7 +57,7 @@ for (auto part : name.split(" "))
 | :--- | :--- | :--- | :--- |
 | **[zvec](https://github.com/z-libs/zvec.h)** | Type-safe dynamic arrays | Full Wrapper | Stable |
 | **[zstr](https://github.com/z-libs/zstr.h)** | SSO-optimized strings & views | Full Wrapper | Stable |
-| **[zmap](https://github.com/z-libs/zmap.h)** | Open-addressing hash maps | *In Progress* | Stable (C) |
+| **[zmap](https://github.com/z-libs/zmap.h)** | Open-addressing hash maps | Full Wrapper | Stable |
 | **[zlist](https://github.com/z-libs/zlist.h)** | Doubly-linked lists | Full Wrapper | Stable |
 
 ## Quick Start
@@ -112,6 +112,7 @@ If your code compiles and runs on the first try, Zibi is happy.
 ## License
 
 The whole project uses the **MIT License**.
+
 
 
 
