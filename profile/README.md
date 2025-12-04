@@ -79,8 +79,8 @@ The libraries are designed to be modular. You can grab just one, or use them all
 Use **[z-core](https://github.com/z-libs/z-core)** tools to manage type generation automatically.
 
 ```bash
-git submodule add https://github.com/z-libs/zvec.git
-git submodule add https://github.com/z-libs/zstr.git
+git submodule add https://github.com/z-libs/zvec.h.git
+git submodule add https://github.com/z-libs/zstr.h.git
 git submodule add https://github.com/z-libs/z-core.git
 ```
 
@@ -122,6 +122,7 @@ If your code compiles and runs on the first try, Zibi is happy.
 ## License
 
 The whole project uses the **MIT License**.
+
 
 
 
