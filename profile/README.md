@@ -68,6 +68,7 @@ print(tostring(buf)) -- "START: USER=ALICE ID=101"
 | **[zstr](https://github.com/z-libs/zstr.h)** | SSO-optimized strings & views | C++ Wrapper, Lua Bindings | Stable |
 | **[zmap](https://github.com/z-libs/zmap.h)** | Open-addressing hash maps | Full C++ Wrapper | Stable |
 | **[zlist](https://github.com/z-libs/zlist.h)** | Doubly-linked lists | Full C++ Wrapper | Stable |
+| **[zalloc](https://github.com/z-libs/zalloc.h)** | Arenas, Pools, and Leak Detection | Zero-overhead, Cache-friendly | Stable |
 
 ## Quick Start
 
@@ -95,7 +96,7 @@ Most C container libraries suffer from **Macro Hell** (cryptic errors), **void\*
 
 * **Zero external dependencies**: Standard C library only.
 * **Truly single-header**: Just drop the file in your project.
-* **Allocator-aware**: Support for arenas, pools, and custom heaps.
+* **Allocator-aware**: Use **zalloc.h** (arenas, pools) or your custom heaps.
 * **Universal**: Compiles on GCC, Clang, MSVC, and tiny microcontrollers.
 
 ## Meet Zibi
@@ -121,6 +122,7 @@ If your code compiles and runs on the first try, Zibi is happy.
 ## License
 
 The whole project uses the **MIT License**.
+
 
 
 
