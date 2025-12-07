@@ -1,5 +1,7 @@
 # z-libs: Modern single-header libraries for C/C++
 
+[![Sponsor](https://img.shields.io/static/v1?label=Sponsor&message=%E2%9D%A4&logo=GitHub&color=%23fe8e86)](https://github.com/sponsors/Zuhaitz-dev)
+
 > Zero-dependency • Header-only • C11 - C++11/C++17 • Type-safe • Lua Bindings
 
 **z-libs** is a collection of single-header container libraries. They are written in pure C for maximum portability but include zero-cost C++ wrappers for modern developer ergonomics.
@@ -122,6 +124,7 @@ If your code compiles and runs on the first try, Zibi is happy.
 ## License
 
 The whole project uses the **MIT License**.
+
 
 
 
