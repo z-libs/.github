@@ -17,7 +17,7 @@ Full control, no hidden allocations, type-safe macros.
 
 ```c
 // zvec: Dynamic Arrays
-vec_int scores = vec_init(int);
+vec(int) scores = vec_init(int);
 vec_push(&scores, 10);
 
 // zstr: SSO Strings
@@ -124,6 +124,7 @@ If your code compiles and runs on the first try, Zibi is happy.
 ## License
 
 The whole project uses the **MIT License**.
+
 
 
 
