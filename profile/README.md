@@ -25,7 +25,7 @@ zstr name = zstr_lit("Ada");
 zstr_fmt(&name, " %s", "Lovelace");
 
 // zmap: Hash Maps
-map_ages ages = map_init(ages);
+map(ages) ages = map_init(ages);
 map_put(&ages, "Grace", 85);
 ```
 
@@ -124,6 +124,7 @@ If your code compiles and runs on the first try, Zibi is happy.
 ## License
 
 The whole project uses the **MIT License**.
+
 
 
 
