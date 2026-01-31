@@ -2,7 +2,7 @@
 
 # z-libs: Building the Future of C
 
-[![Sponsor](https://img.shields.io/static/v1?label=Sponsor&message=%E2%9D%A4&logo=GitHub&color=%23fe8e86)](https://github.com/sponsors/Zuhaitz-dev) [![Discord](https://img.shields.io/discord/1234567890?label=Discord&logo=discord&color=5865F2)](https://discord.com/invite/q6wEsCmkJP)
+[![Sponsor](https://img.shields.io/static/v1?label=Sponsor&message=%E2%9D%A4&logo=GitHub&color=%23fe8e86)](https://github.com/sponsors/Zuhaitz-dev) [![Discord](https://img.shields.io/discord/1460350343966887970?label=Discord&logo=discord&color=5865F2)](https://discord.com/invite/q6wEsCmkJP)
 
 > Home of the **Zen C** programming language.
 
@@ -156,3 +156,4 @@ He started life as a random GitHub identicon, reminded us of an ogre, and became
 ## License
 
 All projects under z-libs use the **MIT License**. Free to use, modify, and distribute for personal and commercial projects.
+
